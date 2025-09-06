@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+<div class="re-form">
+  <nav class="navbar">
+  <div class="logo">🩺 HealthCare</div>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/register">Register</a></li>
+    <li><a href="/login">Login</a></li>
+    <li><a href="/user-dashboard">User Dashboard</a></li>
+    <li><a href="/admin-dashboard">Admin Dashboard</a></li>
+  </ul>
+</nav>
+<h2>Register</h2>
+
+<form (ngSubmit)="register()" class="form">
+  <label>Name:</label>
+  <input [(ngModel)]="user.name" name="name" placeholder="Enter name" required />
+
+  <label>Email:</label>
+  <input [(ngModel)]="user.email" name="email" type="email" placeholder="Enter email" required />
+
+  <label>Password:</label>
+  <input [(ngModel)]="user.password" name="password" type="password" placeholder="Enter password" required />
+
+  <label>Role:</label>
+  <select [(ngModel)]="user.role" name="role">
+    <option value="User">User</option>
+    <option value="Admin">Admin</option>
+  </select>
+
+  <button type="submit">📝 Register</button>
+</form>
+
+<p class="message">{{ message }}</p>
+</div>
+</body>
+</html>

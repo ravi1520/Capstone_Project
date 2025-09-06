@@ -1,0 +1,116 @@
+<div class="form">
+
+<nav class="navbar">
+  <div class="logo">🩺 HealthCare</div>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/register">Register</a></li>
+    <li><a href="/login">Login</a></li>
+    <li><a href="/user-dashboard">User Dashboard</a></li>
+    <li><a href="/admin-dashboard">Admin Dashboard</a></li>
+  </ul>
+</nav>
+<h2>User Dashboard</h2>
+
+<!-- =========================
+     Search Doctors Form
+========================= -->
+<div class="form-section">
+  <label>City:</label>
+  <select [(ngModel)]="city">
+    <option value="">-- Select City --</option>
+    <option value="Hyderabad">Hyderabad</option>
+    <option value="Bengaluru">Bengaluru</option>
+    <option value="Chennai">Chennai</option>
+  </select>
+
+  <!-- <label>Date:</label>
+  <input type="date" [(ngModel)]="date" /> -->
+
+  <label>Specialization:</label>
+  <select [(ngModel)]="specialization">
+    <option value="">-- Select Specialist --</option>
+    <option value="Cardiologist">Cardiologist</option>
+    <option value="Dermatologist">Dermatologist</option>
+    <option value="Neurologist">Neurologist</option>
+  </select>
+
+  <label>Min Rating:</label>
+  <input type="number" [(ngModel)]="minRating" min="0" max="5" />
+
+  <button (click)="findDoctors()">🔍 Search Doctors</button>
+</div>
+<div class="doct">
+<!-- =========================
+     Doctors List
+========================= -->
+<div *ngIf="doctors.length > 0; else noDoctors">
+  <h3>Available Doctors</h3>
+  <ul class="doctor-list">
+    <li *ngFor="let doc of doctors">
+      <strong>{{ doc.name }}</strong> - {{ doc.specialization }} ({{ doc.city }})
+      <span class="rating">⭐ {{ doc.rating }}</span>
+      <button (click)="selectDoctor(doc.id!)">Select</button>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noDoctors>
+  <p>No doctors found. Please adjust your search filters.</p>
+</ng-template>
+
+<!-- =========================
+     Time Slots for Booking
+========================= -->
+<div *ngIf="timeSlots.length > 0; else noSlots">
+  <h3>Available Time Slots</h3>
+  <ul class="slot-list">
+    <li *ngFor="let slot of timeSlots">
+      {{ slot }}
+      <button (click)="book(slot)">✅ Book</button>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noSlots>
+  <p *ngIf="selectedDoctorId">No slots available for this doctor.</p>
+</ng-template>
+
+<!-- =========================
+     My Appointments
+========================= -->
+<div *ngIf="appointments.length > 0">
+  <h3>📅 My Appointments</h3>
+  <div class="bench">
+  <table border="1px">
+    <thead>
+      <tr>
+        <th>Doctor</th>
+        <!-- <th>Date</th> -->
+        <th>Time</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appt of appointments">
+        <td>{{ appt.doctorId }}</td> <!-- ⚠️ Replace doctorId with doctor's name if backend sends it -->
+        <!-- <td>{{ appt.date | date }}</td> -->
+        <td>{{ appt.timeSlot }}</td>
+        <td>{{ appt.status }}</td>
+        <td>
+          <button *ngIf="appt.status !== 'Cancelled'" (click)="cancel(appt.id!)">
+            ❌ Cancel
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<ng-template #noAppointments>
+  <p>No appointments booked yet.</p>
+</ng-template>
+</div>
+</div>

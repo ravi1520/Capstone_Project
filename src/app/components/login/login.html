@@ -1,0 +1,35 @@
+<html>
+<head>
+
+</head>
+<body>
+<div class="form">
+  <nav class="navbar">
+    <div class="logo">🩺 HealthCare</div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/register">Register</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/user-dashboard">User Dashboard</a></li>
+      <li><a href="/admin-dashboard">Admin Dashboard</a></li>
+    </ul>
+  </nav>
+<h2>Login</h2>
+
+<form (ngSubmit)="login()" class="login-form">
+  <label>Email:</label>
+  <input type="email" [(ngModel)]="email" name="email" required>
+
+  <label>Password:</label>
+  <input type="password" [(ngModel)]="password" name="password" required>
+
+  <button type="submit">Login</button>
+</form>
+
+<p>
+  Don’t have an account? 
+  <a href="/register">Register here</a>
+</p>
+</div>
+</body>
+</html>

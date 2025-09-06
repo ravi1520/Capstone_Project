@@ -1,0 +1,44 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  width: 220px;
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 12px 0;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.sidebar ul li:hover {
+  background: #34495e;
+}
+
+.sidebar ul li.active {
+  background: #007bff;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background: #f5f6fa;
+}
