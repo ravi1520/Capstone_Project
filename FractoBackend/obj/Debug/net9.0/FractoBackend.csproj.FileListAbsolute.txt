@@ -170,3 +170,4 @@ C:\Users\ravin\OneDrive\Desktop\Capstone\FractoBackend\obj\Debug\net9.0\refint\F
 C:\Users\ravin\OneDrive\Desktop\Capstone\FractoBackend\obj\Debug\net9.0\FractoBackend.pdb
 C:\Users\ravin\OneDrive\Desktop\Capstone\FractoBackend\obj\Debug\net9.0\FractoBackend.genruntimeconfig.cache
 C:\Users\ravin\OneDrive\Desktop\Capstone\FractoBackend\obj\Debug\net9.0\ref\FractoBackend.dll
+C:\Users\ravin\OneDrive\Desktop\Capstone\FractoBackend\obj\Debug\net9.0\FractoBackend.sourcelink.json
